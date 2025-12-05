@@ -1,0 +1,13 @@
+1. comando per creare il docker
+    sudo docker build -t my-teccl-app .
+2. comando per convertire un immagine docker in una singularity
+    sudo singularity build my-teccl-app.sif docker-daemon://my-teccl-app:latest
+3. comando per lanciare il docker sulla mia macchina 
+    sudo docker run --rm -it my-teccl-app
+    sudo docker run --rm -it my-teccl-app /opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs/my_dragonfly_input.json time_limit 60
+4. comando per vedere che docker esistono
+    sudo docker images
+5. comando per creare un docker su disco
+    sudo docker save -o my-teccl-app.tar my-teccl-app
+6. converte un immagine Docker salvata come file .tar in un container singularity
+    singularity build my-teccl-app.sif docker-archive://my-teccl-app.tar

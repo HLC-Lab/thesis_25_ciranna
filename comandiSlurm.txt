@@ -1,0 +1,40 @@
+1. stato dei nodi
+    sinfo
+2. stato dei job
+    squeue
+3. Questo comando serve per sottomettere un job non-interattivo
+    srun -p <partition> bash -c "echo 'It works! My name is:'; hostname"
+4. serve sempre per un job non interattivo ma faccio una richiesta di quante gpu deve avere quel nodo
+    srun -p <partition> --gpus=2 bash -c "echo 'It works! Here is a summary of my GPUs:'; nvidia-smi
+5. cancella job
+    scancel <job_id>
+6. cancella tutti i job dell'user
+    scancel --user <user_id>
+7. lancia il job
+    sbatch run_teccl_job.sh
+8. qui il job mette la stampa che farebbe a log_to_console
+    tail -f slurm-586370.out
+
+singularity run -B /home/ciranna_1533717/tesi-triennale/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs:/opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs my-teccl-app.sif /opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs/my_dragonfly_input.json alpha '[0.5]' time_limit 60
+
+singularity run -B $HOME/tesi-triennale/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs:/opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs my-teccl-app.sif \
+/opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs/my_dragonfly_input.json \
+num_groups 4 \
+routers_per_group 8 \
+hosts_per_router 16 \
+alpha '[2,4]' \
+time_limit 120 \
+mip_gap 0.01 \
+solution_method 2 \
+debug true
+
+singularity run -B $HOME/tesi-triennale/simple_input:/opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs my-teccl-app.sif /opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs/my_dragonfly_input.json 
+num_groups 2 routers_per_group 2 hosts_per_router 8 alpha '[2,4]' time_limit 120 mip_gap 0.01 solution_method 2 debug true
+
+./runTopologia.sh teccl/examples/sample_inputs/dragonflyPlus_input.json   num_groups 2 leaf_routers 2   spine_routers 3  hosts_per_router 10   alpha '[1.0, 10.0]' 
+heuristics 0.95   collective 1   time_limit 600   feasibility_tol 0.0001   intfeas_tol 0.0001   optimality_tol 0.0001   output_flag 0   log_file ""   log_to_console 1   mip_gap 0.001   mip_focus 1   crossover -1   method -1   num_chunks 8   epoch_type 1   epoch_duration 20000   num_epochs 10   alpha_threshold 0.1   switch_copy true   debug false   debug_output_file ""   objective_type 3   solution_method 2   schedule_output_file "teccl/examples/schedules/dragonfly_schedule.json"
+    
+
+singularity run   -B $HOME/tesi-triennale/input:/opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs   -B $HOME/tesi-triennale/output:/opt/app/te-ccl-dev/TE-CCL/teccl/examples/schedules   my-teccl-app.sif   /opt/app/te-ccl-dev/TE-CCL/teccl/examples/sample_inputs/dragonflyPlus_input.json   num_groups 4   leaf_routers 2   spine_routers 3   hosts_per_router 10   alpha '[1.0, 10.0]'   heuristics 0.95   collective 1   
+time_limit 600   feasibility_tol 0.0001   intfeas_tol 0.0001   optimality_tol 0.0001   output_flag 0   log_file ""   log_to_console 1   mip_gap 0.001   mip_focus 1   crossover -1   method -1   num_chunks 8   epoch_type 1   epoch_duration 20000   num_epochs 10   alpha_threshold 0.1   switch_copy true   debug false   debug_output_file ""   objective_type 3   solution_method 2   schedule_output_file "output/dragonfly_schedule_ng4_lr2_sr3_hpr10.json"
+

@@ -1,0 +1,45 @@
+Nodes 8
+Connections 33
+Triggers 9
+0->4 id 1 start 0 size 80000
+1->6 id 2 start 0 size 80000
+2->4 id 3 start 0 size 80000
+3->4 id 4 start 0 size 80000
+4->5 id 5 start 0 size 80000
+5->4 id 6 start 0 size 80000 send_done_trigger 6
+6->7 id 7 start 0 size 80000
+7->6 id 8 start 0 size 80000 send_done_trigger 8
+0->7 id 9 start 0 size 80000
+1->4 id 10 start 0 size 80000
+2->6 id 11 start 0 size 80000
+3->6 id 12 start 0 size 80000 send_done_trigger 12
+4->1 id 13 trigger 6 size 160000
+4->2 id 14 trigger 6 size 160000
+6->1 id 15 trigger 8 size 160000 send_done_trigger 15
+6->2 id 16 trigger 8 size 160000 send_done_trigger 16
+0->3 id 17 start 0 size 80000 send_done_trigger 17
+1->0 id 18 start 0 size 80000 send_done_trigger 18
+2->1 id 19 start 0 size 80000
+3->1 id 20 start 0 size 80000
+4->7 id 21 trigger 6 size 160000 send_done_trigger 21
+6->4 id 22 trigger 8 size 160000 send_done_trigger 22
+0->2 id 23 trigger 18 size 80000
+0->3 id 24 trigger 18 size 80000
+0->1 id 25 start 0 size 80000
+2->3 id 26 start 0 size 80000
+3->2 id 27 start 0 size 80000
+1->0 id 28 trigger 15 size 480000
+2->3 id 29 trigger 16 size 320000
+3->2 id 30 trigger 17 size 80000
+4->5 id 31 trigger 22 size 480000
+6->7 id 32 trigger 12 size 240000
+7->6 id 33 trigger 21 size 240000
+trigger id 6 oneshot
+trigger id 8 oneshot
+trigger id 12 oneshot
+trigger id 15 oneshot
+trigger id 16 oneshot
+trigger id 17 oneshot
+trigger id 18 oneshot
+trigger id 21 oneshot
+trigger id 22 oneshot

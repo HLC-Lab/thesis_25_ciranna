@@ -1,0 +1,182 @@
+{
+  "1-Epoch_Duration": 20000,
+  "2-Expected_Epoch_Duration": 20000,
+  "3-Epochs_Required": 3,
+  "4-Collective_Finish_Time": 60000,
+  "5-Algo_Bandwidth": 0.0005333333333333334,
+  "6-Demand_Met": {
+    "GPU 0": {
+      "GPU 1": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      },
+      "GPU 2": {
+        "Chunk 0": 60000,
+        "Chunk 1": 60000
+      },
+      "GPU 3": {
+        "Chunk 0": 40000,
+        "Chunk 1": 40000
+      }
+    },
+    "GPU 1": {
+      "GPU 0": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      },
+      "GPU 2": {
+        "Chunk 0": 40000,
+        "Chunk 1": 40000
+      },
+      "GPU 3": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      }
+    },
+    "GPU 2": {
+      "GPU 0": {
+        "Chunk 0": 60000,
+        "Chunk 1": 60000
+      },
+      "GPU 1": {
+        "Chunk 0": 40000,
+        "Chunk 1": 40000
+      },
+      "GPU 3": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      }
+    },
+    "GPU 3": {
+      "GPU 0": {
+        "Chunk 0": 40000,
+        "Chunk 1": 40000
+      },
+      "GPU 1": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      },
+      "GPU 2": {
+        "Chunk 0": 20000,
+        "Chunk 1": 20000
+      }
+    }
+  },
+  "7-Flows": [
+    "Chunk 1 from 1 traveled over 1->3 in epoch 0",
+    "Chunk 1 from 3 traveled over 3->1 in epoch 0",
+    "Chunk 0 from 1 traveled over 1->0 in epoch 0",
+    "Chunk 0 from 3 traveled over 3->1 in epoch 0",
+    "Chunk 0 from 2 traveled over 2->3 in epoch 0",
+    "Chunk 0 from 3 traveled over 3->2 in epoch 0",
+    "Chunk 1 from 1 traveled over 1->0 in epoch 0",
+    "Chunk 0 from 0 traveled over 0->1 in epoch 0",
+    "Chunk 1 from 2 traveled over 2->3 in epoch 0",
+    "Chunk 1 from 0 traveled over 0->1 in epoch 0",
+    "Chunk 1 from 3 traveled over 3->2 in epoch 0",
+    "Chunk 0 from 1 traveled over 1->3 in epoch 0",
+    "Chunk 0 from 1 traveled over 3->2 in epoch 1",
+    "Chunk 1 from 1 traveled over 3->2 in epoch 1",
+    "Chunk 0 from 3 traveled over 1->0 in epoch 1",
+    "Chunk 0 from 2 traveled over 3->1 in epoch 1",
+    "Chunk 1 from 2 traveled over 3->1 in epoch 1",
+    "Chunk 0 from 0 traveled over 1->3 in epoch 1",
+    "Chunk 1 from 3 traveled over 1->0 in epoch 1",
+    "Chunk 1 from 0 traveled over 1->3 in epoch 1",
+    "Chunk 1 from 0 traveled over 3->2 in epoch 2",
+    "Chunk 0 from 2 traveled over 1->0 in epoch 2",
+    "Chunk 1 from 2 traveled over 1->0 in epoch 2",
+    "Chunk 0 from 0 traveled over 3->2 in epoch 2"
+  ],
+  "8-Chunk paths": {
+    "Demand at 0 for chunk 0 from 1 met by epoch 0": [
+      "1->0 in epoch 0"
+    ],
+    "Demand at 0 for chunk 0 from 2 met by epoch 2": [
+      "2->3 in epoch 0",
+      "3->1 in epoch 1",
+      "1->0 in epoch 2"
+    ],
+    "Demand at 0 for chunk 0 from 3 met by epoch 1": [
+      "3->1 in epoch 0",
+      "1->0 in epoch 1"
+    ],
+    "Demand at 0 for chunk 1 from 1 met by epoch 0": [
+      "1->0 in epoch 0"
+    ],
+    "Demand at 0 for chunk 1 from 2 met by epoch 2": [
+      "2->3 in epoch 0",
+      "3->1 in epoch 1",
+      "1->0 in epoch 2"
+    ],
+    "Demand at 0 for chunk 1 from 3 met by epoch 1": [
+      "3->1 in epoch 0",
+      "1->0 in epoch 1"
+    ],
+    "Demand at 1 for chunk 0 from 0 met by epoch 0": [
+      "0->1 in epoch 0"
+    ],
+    "Demand at 1 for chunk 0 from 2 met by epoch 1": [
+      "2->3 in epoch 0",
+      "3->1 in epoch 1"
+    ],
+    "Demand at 1 for chunk 0 from 3 met by epoch 0": [
+      "3->1 in epoch 0"
+    ],
+    "Demand at 1 for chunk 1 from 0 met by epoch 0": [
+      "0->1 in epoch 0"
+    ],
+    "Demand at 1 for chunk 1 from 2 met by epoch 1": [
+      "2->3 in epoch 0",
+      "3->1 in epoch 1"
+    ],
+    "Demand at 1 for chunk 1 from 3 met by epoch 0": [
+      "3->1 in epoch 0"
+    ],
+    "Demand at 2 for chunk 0 from 0 met by epoch 2": [
+      "0->1 in epoch 0",
+      "1->3 in epoch 1",
+      "3->2 in epoch 2"
+    ],
+    "Demand at 2 for chunk 0 from 1 met by epoch 1": [
+      "1->3 in epoch 0",
+      "3->2 in epoch 1"
+    ],
+    "Demand at 2 for chunk 0 from 3 met by epoch 0": [
+      "3->2 in epoch 0"
+    ],
+    "Demand at 2 for chunk 1 from 0 met by epoch 2": [
+      "0->1 in epoch 0",
+      "1->3 in epoch 1",
+      "3->2 in epoch 2"
+    ],
+    "Demand at 2 for chunk 1 from 1 met by epoch 1": [
+      "1->3 in epoch 0",
+      "3->2 in epoch 1"
+    ],
+    "Demand at 2 for chunk 1 from 3 met by epoch 0": [
+      "3->2 in epoch 0"
+    ],
+    "Demand at 3 for chunk 0 from 0 met by epoch 1": [
+      "0->1 in epoch 0",
+      "1->3 in epoch 1"
+    ],
+    "Demand at 3 for chunk 0 from 1 met by epoch 0": [
+      "1->3 in epoch 0"
+    ],
+    "Demand at 3 for chunk 0 from 2 met by epoch 0": [
+      "2->3 in epoch 0"
+    ],
+    "Demand at 3 for chunk 1 from 0 met by epoch 1": [
+      "0->1 in epoch 0",
+      "1->3 in epoch 1"
+    ],
+    "Demand at 3 for chunk 1 from 1 met by epoch 0": [
+      "1->3 in epoch 0"
+    ],
+    "Demand at 3 for chunk 1 from 2 met by epoch 0": [
+      "2->3 in epoch 0"
+    ]
+  },
+  "Solver_Time": 0.16599392890930176
+}

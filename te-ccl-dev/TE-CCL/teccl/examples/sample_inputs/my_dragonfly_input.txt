@@ -1,0 +1,40 @@
+{
+  "TopologyParams": {
+    "name": "Dragonfly",                          // Nome della topologia usata (in questo caso, Dragonfly)
+    "num_groups": 2,                              // Numero di gruppi nella topologia Dragonfly
+    "routers_per_group": 2,                       // Numero di router per ciascun gruppo
+    "hosts_per_router": 2,                        // Numero di host (nodi) collegati a ciascun router
+    "chunk_size": 65536,                          // Dimensione dei chunk da trasferire (in byte)
+    "alpha": [1, 4]                               // Parametri alpha: [link alpha, switch alpha] — usati per modellare i costi di comunicazione
+  },
+
+  "GurobiParams": {
+    "time_limit": 2,                              // Limite di tempo per l’ottimizzazione (in ore)
+    "feasibility_tol": 0.0001,                    // Tolleranza di fattibilità per vincoli
+    "intfeas_tol": 0.0001,                        // Tolleranza di fattibilità per variabili intere
+    "optimality_tol": 0.0001,                     // Tolleranza per determinare l’ottimalità della soluzione
+    "output_flag": 0,                             // Flag per abilitare/disabilitare l’output di Gurobi (0 = disabilitato)
+    "log_file": "",                               // File di log di Gurobi (vuoto = nessun file)
+    "log_to_console": 0,                          // Se 1, stampa i log di Gurobi a console; se 0, no
+    "mip_gap": 0.0001,                            // Gap ottimale massimo accettabile (0.0001 = 0.01%)
+    "mip_focus": 1,                               // Strategia di risoluzione: 1 = enfasi sulla ricerca di soluzioni valide rapidamente
+    "crossover": -1,                              // Metodo di crossover: -1 = auto (lascia scegliere a Gurobi)
+    "method": -1,                                 // Metodo di risoluzione: -1 = auto, 0 = simplex, 1 = dual simplex, 2 = barrier, ecc.
+    "heuristics": 0.3                             // Percentuale di tempo dedicata a euristiche (0.3 = 30%)
+  },
+
+  "InstanceParams": {
+    "collective": 1,                              // Tipo di collettiva (1 = AllGather, 2 = AllToAll)
+    "num_chunks": 1,                              // Numero di chunk da trasferire per ogni nodo verso ogni altro nodo
+    "epoch_type": 1,                              // Tipo di epoca (1 = basato sul link più veloce, 2 = più lento, 3 = input utente)
+    "epoch_duration": -1,                         // Durata dell’epoca (-1 = calcolata automaticamente in base all'epoch_type)
+    "num_epochs": -1,                             // Numero massimo di epoche (-1 = determinato automaticamente)
+    "alpha_threshold": 0.1,                       // Soglia sotto cui il valore di alpha viene considerato 0 (per trascurare latenze minime)
+    "switch_copy": true,                          // Se true, consente agli switch di copiare i chunk e inoltrarli
+    "debug": false,                               // Se true, abilita la stampa delle informazioni di debug
+    "debug_output_file": "",                      // File dove scrivere il debug (vuoto = non viene scritto nulla)
+    "objective_type": 3,                          // Obiettivo da ottimizzare (3 = PAPER: premia quando la domanda è soddisfatta, prima è meglio)
+    "solution_method": 2,                         // Metodo di risoluzione (2 = iterativo con ricerca binaria; 1 = one-shot)
+    "schedule_output_file": "teccl/examples/schedules/dragonfly_schedule.json" // File in cui salvare lo scheduling calcolato
+  }
+}
